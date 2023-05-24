@@ -12,6 +12,9 @@
 </p>
 <form>
     <p>
+        <select asp-for="GenderFilm" asp-items="@Model.Genders">
+            <option value="">Todos</option>
+        </select>
        Buscar Filmes:  <input type="text" asp-for="Search" />
        <input type="submit" value="Buscar" />
     </p>

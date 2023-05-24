@@ -28,9 +28,9 @@ namespace RazorPages.Filmes.Pages.Films
 
 
         [BindProperty(SupportsGet = true)]
-        public string GenreFilm { get; set; }
+        public string GenderFilm { get; set; }
 
-        public SelectList Genres { get; set; }
+        public SelectList Genders { get; set; }
 
         public async Task OnGetAsync()
         {
@@ -40,6 +40,12 @@ namespace RazorPages.Filmes.Pages.Films
             {
                 filmes = filmes.Where(f => f.Tittle.Contains(Search));
             }
+            if (!string.IsNullOrWhiteSpace(GenderFilm))
+            {
+                filmes = filmes.Where(f => f.Gender == GenderFilm);
+            }
+
+            Genders = new SelectList(await _context.Film.Select(o => o.Gender).Distinct().ToListAsync());
             Film = await filmes.ToListAsync();
         }
     }
