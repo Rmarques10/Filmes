@@ -34,6 +34,11 @@
                 <span asp-validation-for="Film.Price" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Film.Stitches" class="control-label"></label>
+                <input asp-for="Film.Stitches" class="form-control" />
+                <span asp-validation-for="Film.Stitches" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
